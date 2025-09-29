@@ -4,13 +4,13 @@ name: Github-Docker Hub MLOps pipeline - Kamila
 env:
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-  REPO_NAME: ${{secrets.REPO_NAME}}
+  REPO_NAME: ${{secrets.git }}
 
-# Event Triggers:
+# Event Triggers
 # The pipeline is triggered whenever there is a push to the main branch.
 # It is also triggered whenever there is a pull request to the main branch
 
-on: 
+on:
   push:
     branches:
     - main
@@ -24,9 +24,9 @@ jobs:
 
 
   ci_pipeline: 
-       runs-on: ubuntu-latest     # The job runs on the ubuntu-latest operating system
-       
-       steps:
+      runs-on: ubuntu-latest     # The job runs on the ubuntu-latest operating system
+      
+      steps:
         - uses: actions/checkout@v1 
           with:
             fetch-depth: 0
